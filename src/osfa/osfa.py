@@ -10,7 +10,7 @@ import subprocess
 from shutil import rmtree
 
 __all__ = ["CmdSh","RunShell"]
-VERSION = "r1.0"
+VERSION = "1.0"
 class CmdSh(Cmd):
     @staticmethod
     def _getRealPath(fPath):
@@ -40,7 +40,9 @@ class CmdSh(Cmd):
                      ||     ||
 '''.format(stuff=arg)
         self.stdout.write(cow)                                                                                                                                                                                                                                                  
-            
+    def do_version(self, arg=None):
+        """Prints the version of OSFA"""
+        self.stdout.write(self.title + '\n')
     def do_echo(self, arg):
         """Prints text to the screen"""
         self.stdout.write(arg + '\n')

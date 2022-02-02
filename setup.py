@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="osfa",
-    version="r1.0",
+    version="1.0",
     author="FreehandBlock51",
     author_email="freehandblock51@outlook.com",
     description="One Shell For All",
