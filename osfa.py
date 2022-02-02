@@ -114,7 +114,10 @@ The file will be overwritten."""
     intro = """OSFA: One Shell For All
 Copyright (c) 2022 by Dalton Carter
 """
-    prompt = "(OSFA) "
+    endprompt = "(OSFA) "
+    @property
+    def prompt(self):
+        return "{} {}".format(os.getcwd(), self.endprompt)
     title = "OSFA"
 
 cmdsh = CmdSh()
