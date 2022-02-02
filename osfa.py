@@ -70,7 +70,10 @@ as arguments."""
         if not path.exists(rFile):
             return
         with open(rFile, 'r') as fd:
-            self.stdout.write("{}\n".format(fd.read()))
+            try:
+                self.stdout.write("{}\n".format(fd.read()))
+            except UnicodeDecodeError:
+                self.stdout.write("Can't decode non-unicode characters in a file!\n")
     def do_pipefile(self, args):
         """Pipes the output of a command to a specified file, listed first.
 The file will be overwritten."""
@@ -130,5 +133,3 @@ try:
             cmdsh.intro = None
 except Exception as e:
     input("\nfatal shell error:\n{}\n press <ENTER> to exit...".format(e))
-
-# cd ~/Downloads/astro-simulations-master/sun-motion-simulator
