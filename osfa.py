@@ -57,11 +57,11 @@ as arguments."""
         else:
             cmdString = command.split(' ')
         try:
-            subprocess.run(*cmdString, stdin=self.stdin, stdout=self.stdout, stderr=self.stdout, shell=True)
+            subprocess.run(cmdString, stdin=self.stdin, stdout=self.stdout, stderr=self.stdout, shell=True)
         except OSError:
             self.stdout.write("Couldn't start from shell, attempting to run as process...\n")
             try:
-                subprocess.run(*cmdString, stdin=self.stdin, stdout=self.stdout, stderr=self.stdout)
+                subprocess.run(cmdString, stdin=self.stdin, stdout=self.stdout, stderr=self.stdout)
             except OSError as e:
                 self.stdout.write("Error starting process:\n" + str(e) + '\n')
     def do_readfile(self, file):
