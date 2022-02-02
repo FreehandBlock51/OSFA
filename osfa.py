@@ -2,7 +2,6 @@
 
 """
 OSFA -- One Shell For All
-Copyright (c) 3124 Dalton Carter
 """
 
 from cmd import Cmd
@@ -112,7 +111,6 @@ The file will be overwritten."""
         fd.close()
         
     intro = """OSFA: One Shell For All
-Copyright (c) 2022 by Dalton Carter
 """
     endprompt = "(OSFA) "
     @property
