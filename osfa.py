@@ -14,6 +14,7 @@ class CmdSh(Cmd):
     def _getRealPath(fPath):
         return path.abspath(path.expanduser(path.expandvars(fPath)))
     def do_moo(self, arg):
+        """Prints an image of a cow speaking the given message"""
         if arg == '':
             cow = '''
  
