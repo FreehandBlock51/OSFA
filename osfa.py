@@ -13,6 +13,31 @@ class CmdSh(Cmd):
     @staticmethod
     def _getRealPath(fPath):
         return path.abspath(path.expanduser(path.expandvars(fPath)))
+    def do_moo(self, arg):
+        if arg == '':
+            cow = '''
+ 
+          < moo >
+ 
+             \\  ^__^
+              \\ (oo)\\________
+                (__)\\        )\\/\\
+                     ||----W |
+                     ||     ||
+'''
+        else:
+            cow = '''
+ 
+          < {stuff} >
+ 
+             \\  ^__^
+              \\ (oo)\\________
+                (__)\\        )\\/\\
+                     ||----W |
+                     ||     ||
+'''.format(stuff=arg)
+        self.stdout.write(cow)                                                                                                                                                                                                                                                  
+            
     def do_echo(self, arg):
         """Prints text to the screen"""
         self.stdout.write(arg + '\n')
