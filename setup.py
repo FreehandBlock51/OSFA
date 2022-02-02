@@ -4,8 +4,8 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="OSFA-FreehandBlock51",
-    version="1",
+    name="osfa",
+    version="r1.0",
     author="FreehandBlock51",
     author_email="freehandblock51@outlook.com",
     description="One Shell For All",

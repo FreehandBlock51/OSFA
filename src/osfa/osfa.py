@@ -10,6 +10,7 @@ import subprocess
 from shutil import rmtree
 
 __all__ = ["CmdSh","RunShell"]
+VERSION = "r1.0"
 class CmdSh(Cmd):
     @staticmethod
     def _getRealPath(fPath):
@@ -141,7 +142,7 @@ The file will be overwritten."""
         fd.close()
         
     intro = """OSFA: One Shell For All
-"""
+Version {}""".format(VERSION)
     endprompt = "(OSFA) "
     @property
     def prompt(self):
