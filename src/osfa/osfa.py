@@ -152,20 +152,21 @@ Version {}""".format(VERSION)
         return "{} {}".format(os.getcwd(), self.endprompt)
     title = "OSFA"
 
-def RunShell(argv=argv):
+def RunShell(argv=argv, cmdsh=CmdSh()):
     """Starts a shell.
     Called when script is executed by the command line.
     'argv' is arguments passed to the shell, and defaults
-    to sys.argv."""
+    to sys.argv.  'cmdsh' is the shell that will be used,
+    and a custom value should only be given for testing."""
 
-    cmdsh = CmdSh()
     if len(argv) > 1: # we are given arguments
         file = argv[1] # interpret first argument as a file
         # TODO if other arguments are parsed, implement flags to differentiate
-        with open(file, 'r') as cFd:
-            cmdsh.cmdqueue.extend(cFd.readlines()) # add commands 
+        with open(file, 'r') as cFh:
+            cmdsh.cmdqueue.extend(cFh.readlines()) # add commands 
                                                    # (1 command per line) 
                                                    # to command queue
+            cmdsh.cmdqueue.append("exit") # automatically exit after running
 
     try:
         while True:
