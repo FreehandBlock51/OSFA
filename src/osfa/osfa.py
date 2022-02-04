@@ -1,20 +1,33 @@
-#!/usr/bin/env python
 
 """
 OSFA -- One Shell For All
 """
-
+VERSION = "1.11"
+"""version 1.11"""
 from cmd import Cmd
 import os, os.path as path
 import subprocess
 from shutil import rmtree
-
+from os import system
 __all__ = ["CmdSh","RunShell"]
-VERSION = "1.1"
+
+system("title ofsa")
 class CmdSh(Cmd):
     @staticmethod
     def _getRealPath(fPath):
         return path.abspath(path.expanduser(path.expandvars(fPath)))
+    def do_credits(self, arg):
+        """prints the credits"""
+        a = 'Created by FreehandBlock51 and SuperPotato9 and released under the MIT license \n'
+        self.stdout.write(a)
+        
+    def do_title(self, arg):
+        """changes current osfa window title"""
+        if arg.strip():
+            system("title " + arg)
+        if not arg.strip():
+            system("title " + 'ofsa')
+        
     def do_moo(self, arg):
         """Prints an image of a cow speaking the given message"""
         if arg == '':
@@ -41,13 +54,13 @@ class CmdSh(Cmd):
 '''.format(stuff=arg)
         self.stdout.write(cow)                                                                                                                                                                                                                                                  
     def do_version(self, arg=None):
-        """Prints the version of OSFA"""
+        """Prints the current version of OSFA"""
         self.stdout.write("OSFA version " + VERSION + '\n')
     def do_echo(self, arg):
         """Prints text to the screen"""
         self.stdout.write(arg + '\n')
     def do_exit(self, *args):
-        """Exits the terminal"""
+        """Exits osfa"""
         return True
     def do_cd(self, newDir="."):
         """Changes the current working directory to the specified one (default '.') and prints it to the screen"""
