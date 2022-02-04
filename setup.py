@@ -7,7 +7,7 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="osfa",
-    version="1.1",
+    version="2.0",
     author="FreehandBlock51",
     author_email="freehandblock51@outlook.com",
     description="One Shell For All",

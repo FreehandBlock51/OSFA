@@ -11,7 +11,7 @@ from shutil import rmtree
 from sys import argv
 
 __all__ = ["CmdSh","RunShell","VERSION"]
-VERSION = "1.1"
+VERSION = "2.0"
 class CmdSh(Cmd):
     @staticmethod
     def _getRealPath(fPath):
