@@ -10,7 +10,7 @@ import subprocess
 from shutil import rmtree
 from sys import argv
 
-__all__ = ["CmdSh","RunShell"]
+__all__ = ["CmdSh","RunShell","VERSION"]
 VERSION = "1.1"
 class CmdSh(Cmd):
     @staticmethod
@@ -157,7 +157,7 @@ def RunShell(argv=argv):
     Called when script is executed by the command line.
     'argv' is arguments passed to the shell, and defaults
     to sys.argv."""
-    
+
     cmdsh = CmdSh()
     if len(argv) > 1: # we are given arguments
         file = argv[1] # interpret first argument as a file
