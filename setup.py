@@ -2,10 +2,12 @@ import setuptools
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
+with open("requirements.txt", "r", encoding="utf-8") as fh:
+    requirements = fh.readlines()
 
 setuptools.setup(
     name="osfa",
-    version="1.1",
+    version="2.0",
     author="FreehandBlock51",
     author_email="freehandblock51@outlook.com",
     description="One Shell For All",
@@ -21,6 +23,7 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     package_dir={"": "src"},
-    packages=setuptools.find_packages(where="src"),
+    packages=setuptools.find_packages(where="src", exclude=("tests","tests.*")),
     python_requires=">=3.6",
+    requirements=requirements,
 )
