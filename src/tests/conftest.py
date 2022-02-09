@@ -1,6 +1,6 @@
 import pytest, os
 
-@pytest.fixture()#scope="session")
+@pytest.fixture()
 def piped_cmdsh():
     from osfa import CmdSh
     from io import StringIO
