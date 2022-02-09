@@ -38,7 +38,7 @@ def testExecCommand(tmp_path, piped_cmdsh):
     exit
     """)
     piped_cmdsh.cmdqueue = [
-        "exec " + tmp_path
+        "exec " + str(tFile)
     ]
     _prevent_timeout(piped_cmdsh)
     piped_cmdsh.cmdloop()
