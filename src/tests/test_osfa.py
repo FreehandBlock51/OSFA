@@ -29,3 +29,18 @@ version""")
     piped_cmdsh.stdout.seek(0)
     output = piped_cmdsh.stdout.read()
     assert output.count("hello!") > 0 and output.count(VERSION) > 1
+
+
+def testExecCommand(tmp_path, piped_cmdsh):
+    tFile = tmp_path / "execTest.tmp"
+    tFile.write_text("""
+    echo hello!
+    exit
+    """)
+    piped_cmdsh.cmdqueue = [
+        "exec " + tmp_path
+    ]
+    _prevent_timeout(piped_cmdsh)
+    piped_cmdsh.cmdloop()
+    piped_cmdsh.stdout.seek(0)
+    assert output.count("hello!") > 0
