@@ -43,4 +43,5 @@ def testExecCommand(tmp_path, piped_cmdsh):
     _prevent_timeout(piped_cmdsh)
     piped_cmdsh.cmdloop()
     piped_cmdsh.stdout.seek(0)
+    output = piped_cmdsh.stdout.read()
     assert output.count("hello!") > 0
