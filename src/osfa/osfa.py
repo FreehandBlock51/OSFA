@@ -88,6 +88,12 @@ class CmdSh(Cmd):
                 "Command failed with exception:\n" + str(e) + '\n')
         finally:
             self.stdout.write("{END DEBUG}\n")
+    
+    def do_exec(self, file):
+        """Runs commands from the specified file, 1 command per line."""
+        with open(file, 'r') as cFh:
+            cmdsh.cmdqueue.extend(cFh.readlines())  # add commands
+        
 
     def do_shell(self, command):
         """Attempts to run the given command specified by \
@@ -186,18 +192,17 @@ def RunShell(argv=argv, cmdsh=CmdSh()):
     if len(argv) > 1:  # we are given arguments
         file = argv[1]  # interpret first argument as a file
         # TODO if other arguments are parsed, implement flags to differentiate
-        with open(file, 'r') as cFh:
-            cmdsh.cmdqueue.extend(cFh.readlines())  # add commands
-            # (1 command per line)
-            # to command queue
-            cmdsh.cmdqueue.append("exit")  # automatically exit after running
+        cmdsh.cmdqueue = [
+            'exec ' + file,
+            'exit'
+        ]
 
     try:
         while True:
             try:
                 cmdsh.cmdloop()
                 break
-            except KeyboardInterrupt:
+            except KeyboardInterrupt: # on ^C, resume interpreter
                 print()
                 cmdsh.intro = None
     except Exception as e:
