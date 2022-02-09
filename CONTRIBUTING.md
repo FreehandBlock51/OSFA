@@ -6,6 +6,8 @@ If you have a new feature you would like to add to the repository, first check i
 If it hasn't, create an issue with the `enhancement` (or `documentation` if applicable) tag.  It should contain the following:
  * A title containing the name of the feature
  * A brief discription of the feature.  If you want to add a command, include the command's syntax (eg: `foo [bar]`)
+
+Optionally, if you have already completed the next steps before creating an issue, you can put all this in a pull request instead.
  
 At this stage, the issue may be taken down if it turns out to be impossible or unnecessary.  If there is enough agreement
 on whether the feature is needed, you can put a link to the fork where work will be done
