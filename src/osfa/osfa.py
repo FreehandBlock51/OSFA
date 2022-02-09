@@ -92,7 +92,9 @@ class CmdSh(Cmd):
     def do_exec(self, file):
         """Runs commands from the specified file, 1 command per line."""
         with open(file, 'r') as cFh:
-            self.cmdqueue.extend(cFh.readlines())  # add commands to queue
+            oldQueue = self.cmdqueue[:] # save old queue
+            self.cmdqueue = cFh.readlines()
+            self.cmdqueue.extend(oldQueue)
         
 
     def do_shell(self, command):
