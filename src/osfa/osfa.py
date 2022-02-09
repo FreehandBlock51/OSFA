@@ -19,7 +19,7 @@ class CmdSh(Cmd):
     def do_moo(self, arg):
         """Prints an image of a cow speaking the given message"""
         if arg == '':
-            cow = '''
+            cow = """
  
           < moo >
  
@@ -28,9 +28,9 @@ class CmdSh(Cmd):
                 (__)\\        )\\/\\
                      ||----W |
                      ||     ||
-'''
+"""
         else:
-            cow = '''
+            cow = """
  
           < {stuff} >
  
@@ -39,7 +39,7 @@ class CmdSh(Cmd):
                 (__)\\        )\\/\\
                      ||----W |
                      ||     ||
-'''.format(stuff=arg)
+""".format(stuff=arg)
         self.stdout.write(cow)
     def do_version(self, arg=None):
         """Prints the version of OSFA"""
