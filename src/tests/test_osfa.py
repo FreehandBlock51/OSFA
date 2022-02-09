@@ -30,7 +30,6 @@ version""")
     output = piped_cmdsh.stdout.read()
     assert output.count("hello!") > 0 and output.count(VERSION) > 1
 
-
 def testExecCommand(tmp_path, piped_cmdsh):
     tFile = tmp_path / "execTest.tmp"
     tFile.write_text("""
