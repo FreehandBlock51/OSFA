@@ -173,7 +173,7 @@ The file will be overwritten."""
         fd = open(self._getRealPath(file), 'x')
         fd.close()
 
-    def do_EOF(self, arg):
+    def do_EOF(self, arg=None):
         """Called when an End-Of-File or ^C (KeyboardInterrupt) is given.  Does nothing."""
         pass
 
