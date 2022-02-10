@@ -183,7 +183,7 @@ The file will be overwritten."""
 
     intro = """OSFA: One Shell For All
 Version {}""".format(VERSION)
-    endprompt = "(OSFA) "
+    endprompt = "(OSFA) ⁞ "
 
     @property
     def prompt(self):
