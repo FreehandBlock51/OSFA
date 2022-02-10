@@ -3,7 +3,7 @@
 ## Feature Requests
 
 If you have a new feature you would like to add to the repository, first check if that feature has already been created.
-If it hasn't, create an issue with the `enhancement` (or `documentation` if applicable) tag.  It should contain the following:
+If it hasn't, create an issue with the `enhancement` (or `documentation` if applicable) tag.  If you have already completed the next step, you can create a pull request in this format instead of an issue.  In both cases, it should contain the following:
  * A title containing the name of the feature
  * A brief discription of the feature.  If you want to add a command, include the command's syntax (eg: `foo [bar]`)
  
@@ -31,4 +31,4 @@ Once all requirements have been met and all discussions are closed, you can requ
 
 The version of this package is defined as: \
 `[release].[patch]`\
-where `release` is incremented anytime new features are added, and `patch` is incremented anytime bugs are fixed, but nothing new is added.  Anytime a pull request is merged, one of these should be incremented depending on the changes made.
+where `release` is incremented anytime new features are added, and `patch` is incremented anytime bugs are fixed, but nothing new is added.  All releases should increment one of these depending on the changes made.  If you aren't sure what version we're on, you can just leave it unchanged and someone will increment it in the main branch when creating the release.
