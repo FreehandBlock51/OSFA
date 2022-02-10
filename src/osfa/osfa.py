@@ -174,8 +174,8 @@ The file will be overwritten."""
         fd.close()
 
     def do_EOF(self, arg=None):
-        """Called when an End-Of-File or ^C (KeyboardInterrupt) is given.  Does nothing."""
-        pass
+        """Called when an End-Of-File (Manually triggered by ^D or ^Z+<Enter> on Windows) is given."""
+        self.do_exit()
 
     def emptyline(self):
         """Called when the input is an empty line.  Overridden from Cmd.emptyline()"""
