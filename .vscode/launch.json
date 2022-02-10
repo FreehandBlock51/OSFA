@@ -9,6 +9,13 @@
             "type": "python",
             "request": "launch",
             "module": "src.osfa",
+            "autoReload": {
+                "enable": true,
+                "include": [
+                    "src/osfa/*.py",
+                    "src/osfa/*.pyw"
+                ]
+            }
         }
     ]
 }
