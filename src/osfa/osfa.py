@@ -173,6 +173,10 @@ The file will be overwritten."""
         fd = open(self._getRealPath(file), 'x')
         fd.close()
 
+    def do_EOF(self, arg):
+        """Called when an End-Of-File or ^C (KeyboardInterrupt) is given.  Does nothing."""
+        pass
+
     def emptyline(self):
         """Called when the input is an empty line.  Overridden from Cmd.emptyline()"""
         pass  # we don't want anything to happen
@@ -203,13 +207,7 @@ def RunShell(argv=argv, cmdsh=CmdSh()):
         ]
 
     try:
-        while True:
-            try:
-                cmdsh.cmdloop()
-                break
-            except KeyboardInterrupt:  # on ^C, resume interpreter
-                print()
-                cmdsh.intro = None
+        cmdsh.cmdloop()
     except Exception as e:
         input("\nfatal shell error:\n{}\n press <ENTER> to exit...".format(e))
 
