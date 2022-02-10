@@ -187,7 +187,7 @@ Version {}""".format(VERSION)
 
     @property
     def prompt(self):
-        return "{} {}".format(os.getcwd(), self.endprompt)
+        return "⌠{}⌡\n\t{}".format(os.getcwd(), self.endprompt)
     title = "OSFA"
 
 
