@@ -88,14 +88,13 @@ class CmdSh(Cmd):
                 "Command failed with exception:\n" + str(e) + '\n')
         finally:
             self.stdout.write("{END DEBUG}\n")
-    
+
     def do_exec(self, file):
         """Runs commands from the specified file, 1 command per line."""
         with open(file, 'r') as cFh:
-            oldQueue = self.cmdqueue[:] # save old queue
+            oldQueue = self.cmdqueue[:]  # save old queue
             self.cmdqueue = cFh.readlines()
             self.cmdqueue.extend(oldQueue)
-        
 
     def do_shell(self, command):
         """Attempts to run the given command specified by \
@@ -174,6 +173,10 @@ The file will be overwritten."""
         fd = open(self._getRealPath(file), 'x')
         fd.close()
 
+    def emptyline(self):
+        """Called when the input is an empty line.  Overridden from Cmd.emptyline()"""
+        pass  # we don't want anything to happen
+
     intro = """OSFA: One Shell For All
 Version {}""".format(VERSION)
     endprompt = "(OSFA) "
@@ -204,7 +207,7 @@ def RunShell(argv=argv, cmdsh=CmdSh()):
             try:
                 cmdsh.cmdloop()
                 break
-            except KeyboardInterrupt: # on ^C, resume interpreter
+            except KeyboardInterrupt:  # on ^C, resume interpreter
                 print()
                 cmdsh.intro = None
     except Exception as e:
